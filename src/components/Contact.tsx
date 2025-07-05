@@ -51,7 +51,31 @@ const Contact = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -85,7 +109,7 @@ const Contact = () => {
             {contactInfo.map((contact, index) => (
               <motion.div
                 key={contact.type}
-                variants={itemVariants}
+                variants={cardVariants}
                 whileHover={{ 
                   y: -5,
                   transition: { duration: 0.3 }
@@ -159,7 +183,7 @@ const Contact = () => {
 
         {/* Call Button (Mobile) */}
         <motion.div
-          variants={itemVariants}
+          variants={buttonVariants}
           className="md:hidden text-center mt-8"
         >
           <Button

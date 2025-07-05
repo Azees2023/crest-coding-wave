@@ -34,7 +34,31 @@ const Skills = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const skillItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -72,7 +96,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              variants={itemVariants}
+              variants={skillItemVariants}
               className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex items-center justify-between mb-4">
@@ -91,7 +115,7 @@ const Skills = () => {
                   transition={{ 
                     duration: 1, 
                     delay: index * 0.1,
-                    ease: "easeOut" 
+                    ease: [0.25, 0.46, 0.45, 0.94] 
                   }}
                   className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
                 >
@@ -110,7 +134,7 @@ const Skills = () => {
           className="mt-16 text-center"
         >
           <motion.h3
-            variants={itemVariants}
+            variants={categoryVariants}
             className="text-2xl font-poppins font-bold text-gray-800 mb-8"
           >
             Core Competencies
@@ -120,7 +144,7 @@ const Skills = () => {
             {['Frontend', 'Backend', 'Database', 'DevOps'].map((category, index) => (
               <motion.div
                 key={category}
-                variants={itemVariants}
+                variants={categoryVariants}
                 className="relative"
               >
                 <motion.div
