@@ -1,17 +1,13 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowUp, Github, Linkedin } from 'lucide-react';
+import ContactCard from './ContactCard';
+import ResumeSection from './ResumeSection';
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const contactInfo = [
     {
@@ -104,78 +100,16 @@ const Contact = () => {
           {/* Contact Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {contactInfo.map((contact, index) => (
-              <motion.div
+              <ContactCard
                 key={contact.type}
+                contact={contact}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <Card className="bg-white/5 backdrop-blur-lg border-white/10 text-white h-full cursor-pointer hover:bg-white/10 transition-all duration-300">
-                  <CardHeader className="text-center pb-3">
-                    <CardTitle className="text-lg font-poppins font-bold">
-                      {contact.type}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-gray-300 font-inter mb-4 text-sm">
-                      {contact.value}
-                    </p>
-                    <Button
-                      onClick={contact.action}
-                      className={`bg-gradient-to-r ${contact.color} hover:scale-105 transition-transform duration-300 w-full`}
-                    >
-                      Contact
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              />
             ))}
           </div>
 
           {/* Resume Section */}
-          <motion.div
-            variants={itemVariants}
-            className="text-center space-y-8"
-          >
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8">
-              <h3 className="text-2xl font-poppins font-bold text-white mb-4">
-                Download My Resume
-              </h3>
-              <p className="text-gray-300 font-inter mb-6">
-                Get a detailed overview of my experience, skills, and achievements
-              </p>
-              
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 font-inter font-semibold px-8 py-3 text-lg mb-6"
-                onClick={() => {
-                  // Replace with actual resume download link
-                  console.log('Downloading resume...');
-                }}
-              >
-                Download Resume
-              </Button>
-
-              {/* Scroll to Top */}
-              <div className="flex flex-col items-center">
-                <motion.button
-                  onClick={scrollToTop}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-white/70 hover:text-white transition-colors mb-2"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <ArrowUp className="w-6 h-6" />
-                </motion.button>
-                <span className="text-white/70 text-sm font-inter">
-                  Back to Top
-                </span>
-              </div>
-            </div>
-          </motion.div>
+          <ResumeSection variants={itemVariants} />
         </motion.div>
 
         {/* Call Button (Mobile) */}
