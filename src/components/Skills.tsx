@@ -33,8 +33,7 @@ const Skills = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.6
       }
     }
   };
@@ -45,8 +44,7 @@ const Skills = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.6
       }
     }
   };
@@ -57,8 +55,7 @@ const Skills = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.6
       }
     }
   };
@@ -114,8 +111,7 @@ const Skills = () => {
                   animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
                   transition={{ 
                     duration: 1, 
-                    delay: index * 0.1,
-                    ease: [0.25, 0.46, 0.45, 0.94] 
+                    delay: index * 0.1
                   }}
                   className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
                 >

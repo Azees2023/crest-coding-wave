@@ -59,7 +59,7 @@ const Hero = () => {
               <motion.span
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
-                transition={{ delay: 1, duration: 2, ease: [0.87, 0, 0.13, 1] }}
+                transition={{ delay: 1, duration: 2 }}
                 className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-white animate-blink"
               >
                 Developer
