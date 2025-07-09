@@ -111,7 +111,7 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-xs">
               <AspectRatio ratio={4/10} className="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden">
                 <div className="w-full h-full flex items-center justify-center text-white/70">
                   <div className="text-center">
