@@ -1,19 +1,8 @@
-
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-interface ContactCardProps {
-  contact: {
-    type: string;
-    value: string;
-    action: () => void;
-    color: string;
-  };
-  variants: any;
-}
-
-const ContactCard = ({ contact, variants }: ContactCardProps) => {
+const ContactCard = ({ contact, variants }) => {
   return (
     <motion.div
       variants={variants}

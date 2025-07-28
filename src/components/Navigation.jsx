@@ -1,0 +1,139 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Menu, X, Phone } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
+const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (window.innerWidth < 768) {
+      // On mobile, show call dialog
+      return;
+    } else {
+      // On desktop, scroll to home
+      scrollToSection('#home');
+    }
+  };
+
+  const navItems = [
+    { href: '#home', label: 'Home' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#certifications', label: 'Certifications' },
+    { href: '#contact', label: 'Contact' },
+  ];
+
+  return (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-black/80 backdrop-blur-lg' : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-2xl font-bold text-white cursor-pointer font-poppins md:cursor-default"
+                onClick={handleLogoClick}
+              >
+                Portfolio
+              </motion.div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <div className="text-center">
+                <Phone className="mx-auto h-12 w-12 text-primary mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Let's Talk!</h3>
+                <p className="text-muted-foreground mb-4">
+                  Ready to discuss your project?
+                </p>
+                <Button
+                  onClick={() => window.open('tel:+1234567890', '_self')}
+                  className="w-full"
+                >
+                  Call Now: +1 (234) 567-890
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <motion.button
+                key={item.href}
+                onClick={() => scrollToSection(item.href)}
+                whileHover={{ y: -2 }}
+                className="text-white hover:text-gray-300 transition-colors font-inter font-medium"
+              >
+                {item.label}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white p-2"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-black/90 backdrop-blur-lg rounded-lg mb-4"
+          >
+            <div className="px-4 py-4 space-y-4">
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  whileHover={{ x: 10 }}
+                  className="block w-full text-left text-white hover:text-gray-300 transition-colors font-inter font-medium py-2"
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </motion.nav>
+  );
+};
+
+export default Navigation;
