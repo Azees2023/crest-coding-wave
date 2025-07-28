@@ -5,7 +5,7 @@ import { Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
 function AnimatedSphere() {
-  const meshRef = useRef<THREE.Mesh>(null!);
+  const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
@@ -15,16 +15,14 @@ function AnimatedSphere() {
   });
 
   return (
-    <Sphere ref={meshRef} args={[1, 100, 200]} scale={1.2}>
-      <MeshDistortMaterial
+    <mesh ref={meshRef} scale={1.2}>
+      <sphereGeometry args={[1, 32, 32]} />
+      <meshStandardMaterial
         color="#667eea"
-        attach="material"
-        distort={0.3}
-        speed={2}
         roughness={0.2}
         metalness={0.8}
       />
-    </Sphere>
+    </mesh>
   );
 }
 
