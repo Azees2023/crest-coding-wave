@@ -24,7 +24,7 @@ const Certifications = () => {
     {
       title: "Microsoft Azure Developer Associate",
       issuer: "Microsoft",
-      date: "2022",
+      date: "2022",mpo
       description: "Certification validating skills in developing cloud solutions using Azure services.",
       color: "from-blue-500 to-purple-600"
     },
