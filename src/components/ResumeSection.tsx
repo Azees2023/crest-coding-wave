@@ -25,8 +25,12 @@ const ResumeSection = ({ variants }: ResumeSectionProps) => {
           size="lg"
           className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 font-inter font-semibold px-8 py-3 text-lg mb-6"
           onClick={() => {
-            // Replace with actual resume download link
-            console.log('Downloading resume...');
+            const link = document.createElement('a');
+            link.href = '/resume.pdf';
+            link.download = 'Your_Name_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
           }}
         >
           Download Resume
