@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,8 +38,11 @@ const Navigation = () => {
 
   const navItems = [
     { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
+    { href: '#testimonials', label: 'Testimonials' },
     { href: '#certifications', label: 'Certifications' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -49,7 +53,9 @@ const Navigation = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-lg' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-background/90 backdrop-blur-lg border-b border-border/50' 
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,10 +66,12 @@ const Navigation = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-2xl font-bold text-white cursor-pointer font-poppins md:cursor-default"
+                className="text-2xl font-bold cursor-pointer font-poppins md:cursor-default"
                 onClick={handleLogoClick}
               >
-                Portfolio
+                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                  Portfolio
+                </span>
               </motion.div>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
@@ -84,25 +92,27 @@ const Navigation = () => {
           </Dialog>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 whileHover={{ y: -2 }}
-                className="text-white hover:text-gray-300 transition-colors font-inter font-medium"
+                className="text-foreground/80 hover:text-foreground transition-colors font-inter font-medium"
               >
                 {item.label}
               </motion.button>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden flex items-center gap-3">
+            <ThemeToggle />
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white p-2"
+              className="text-foreground p-2"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
@@ -115,7 +125,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/90 backdrop-blur-lg rounded-lg mb-4"
+            className="lg:hidden bg-background/95 backdrop-blur-lg rounded-lg mb-4 border border-border/50"
           >
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
@@ -123,7 +133,7 @@ const Navigation = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   whileHover={{ x: 10 }}
-                  className="block w-full text-left text-white hover:text-gray-300 transition-colors font-inter font-medium py-2"
+                  className="block w-full text-left text-foreground/80 hover:text-foreground transition-colors font-inter font-medium py-2"
                 >
                   {item.label}
                 </motion.button>
