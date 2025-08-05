@@ -66,11 +66,25 @@ const Navigation = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-2xl font-bold cursor-pointer font-poppins md:cursor-default"
+                className="text-2xl font-bold cursor-pointer font-poppins md:cursor-default flex items-center gap-2"
                 onClick={handleLogoClick}
               >
+                {/* Animated small circular image/avatar */}
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-shrink-0"
+                >
+                  <img
+                    src="/public/Photo.jpg"
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full border-2 border-primary object-cover"
+                  />
+                </motion.div>
                 <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Portfolio
+                  Azees Rahaman
                 </span>
               </motion.div>
             </DialogTrigger>

@@ -91,9 +91,8 @@ const Hero = () => {
                 View My Work
               </Button>
               <Button
-                variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-purple-900 font-semibold px-8 py-3 text-lg font-inter"
+                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 font-semibold px-8 py-3 text-lg font-inter"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   if (contactSection) {
