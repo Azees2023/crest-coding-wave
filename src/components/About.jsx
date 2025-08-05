@@ -10,9 +10,9 @@ const About = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
   const stats = [
-    { number: "50+", label: "Projects Completed", icon: Award },
-    { number: "3+", label: "Years Experience", icon: Calendar },
-    { number: "25+", label: "Happy Clients", icon: MapPin },
+    { number: "2+", label: "Projects Completed", icon: Award },
+    { number: "FullStack", label: "Fresher Developer", icon: Calendar },
+    { number: "+", label: "Happy Clients", icon: MapPin },
     { number: "100%", label: "Success Rate", icon: Award }
   ];
 
@@ -62,8 +62,12 @@ const About = () => {
                   {/* Professional Photo Placeholder */}
                   <div className="w-full h-full bg-gradient-to-br from-purple-200 to-blue-200 dark:from-purple-800/30 dark:to-blue-800/30 rounded-xl flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">
-                        JP
+                      <div className="w-full  mx-auto mb-4 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">
+                        <img
+                          src="/public/image-1.jpg"
+                          alt="Profile"
+                          className="w-full h-full  object-cover"
+                        />
                       </div>
                       <p className="text-sm text-muted-foreground">Professional Photo</p>
                     </div>
@@ -100,18 +104,13 @@ const About = () => {
               </motion.h2>
               <motion.div variants={itemVariants} className="space-y-4 text-lg text-muted-foreground font-inter leading-relaxed">
                 <p>
-                  I'm a passionate full-stack developer with over 3 years of experience creating 
-                  digital solutions that make a difference. My journey in technology started with 
-                  curiosity and has evolved into a career dedicated to crafting exceptional user experiences.
+                  I'm a fresher full-stack developer specializing in Java technologies, eager to start my professional journey and contribute to impactful digital solutions. My passion for technology drives me to continuously learn and grow in the ever-evolving world of software development.
                 </p>
                 <p>
-                  Specializing in modern web technologies, I bring ideas to life through clean code, 
-                  innovative design, and a deep understanding of user needs. I believe in the power 
-                  of technology to solve real-world problems and create meaningful connections.
+                  With a strong foundation in Java, Spring Boot, and modern web technologies, I am committed to building robust and scalable applications. I enjoy solving problems through code and am enthusiastic about collaborating with teams to deliver high-quality software.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to 
-                  open-source projects, or mentoring aspiring developers in the community.
+                  When I'm not coding, I focus on expanding my skills, exploring new frameworks, and staying updated with industry trends to become a better developer every day.
                 </p>
               </motion.div>
             </div>
@@ -121,8 +120,8 @@ const About = () => {
               <h3 className="text-xl font-semibold font-poppins text-foreground">Core Expertise</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  'React.js', 'Node.js', 'TypeScript', 'Python', 'AWS', 'MongoDB',
-                  'PostgreSQL', 'GraphQL', 'Docker', 'Kubernetes', 'CI/CD', 'Agile'
+                  'React.js', 'Node.js', 'JavaScript', 'Core Java', 'SpringBoot', 'PostgreSQL' ,
+                  'MySql', 'Kubernetes', 'Web Technology', 'Agile'
                 ].map((skill) => (
                   <Badge 
                     key={skill} 
