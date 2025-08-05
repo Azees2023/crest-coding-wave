@@ -244,7 +244,7 @@ const Testimonials = () => {
                 </Card>
               </motion.div>
             ))}
-          </div>
+            </motion.div>
         </motion.div>
 
         {/* CTA Section */}
