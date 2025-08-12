@@ -10,22 +10,22 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
   const contactInfo = [
-    {
+      {
       type: 'Email',
-      value: 'hello@developer.com',
-      action: () => window.open('mailto:hello@developer.com'),
+      value: 'azeesbindeen1997@gmail.com',
+      action: () => window.open('mailto:azeesbindeen1997@gmail.com'),
       color: 'from-blue-500 to-blue-600'
     },
     {
       type: 'LinkedIn',
-      value: '/in/developer',
-      action: () => window.open('https://linkedin.com/in/developer'),
+      value: '/in/azees-rahman-5741ab209/',
+      action: () => window.open('https://linkedin.com/in/azees-rahman-5741ab209/'),
       color: 'from-blue-600 to-blue-700'
     },
     {
       type: 'GitHub',
       value: '@developer',
-      action: () => window.open('https://github.com/developer'),
+      action: () => window.open('https://github.com/azees2023'),
       color: 'from-gray-700 to-gray-800'
     }
   ];

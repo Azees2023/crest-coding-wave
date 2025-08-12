@@ -35,8 +35,8 @@ const ResumeSection = () => {
           className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 font-inter font-semibold px-8 py-3 text-lg mb-6"
           onClick={() => {
             const link = document.createElement('a');
-            link.href = '/resume.pdf';
-            link.download = 'Your_Name_Resume.pdf';
+            link.href = '/public/Azees_Resume.pdf';
+            link.download = 'Azees_Resume.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

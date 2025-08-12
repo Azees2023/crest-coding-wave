@@ -7,12 +7,14 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
   const skills = [
-    { name: 'React', level: 95, gradient: 'from-blue-400 to-blue-600' },
-    { name: 'Node.js', level: 90, gradient: 'from-green-400 to-green-600' },
-    { name: 'TypeScript', level: 85, gradient: 'from-blue-500 to-blue-700' },
-    { name: 'Python', level: 88, gradient: 'from-yellow-400 to-yellow-600' },
-    { name: 'MongoDB', level: 82, gradient: 'from-green-500 to-green-700' },
-    { name: 'AWS', level: 78, gradient: 'from-orange-400 to-orange-600' },
+    { name: 'Core Java', level: 75, gradient: 'from-blue-400 to-blue-600' },
+    { name: 'SpringBoot', level: 60, gradient: 'from-blue-400 to-blue-600' },
+    { name: 'JavaScript', level: 70, gradient: 'from-green-400 to-green-600' },
+    { name: 'React.js', level: 70, gradient: 'from-blue-500 to-blue-700' },
+     { name: 'TailwindCSS', level: 85, gradient: 'from-blue-500 to-blue-700' },
+      { name: 'Material UI', level: 60, gradient: 'from-blue-500 to-blue-700' },
+    { name: 'POStSql', level: 50, gradient: 'from-yellow-400 to-yellow-600' },
+    { name: 'MySql', level: 60, gradient: 'from-green-500 to-green-700' }, 
   ];
 
   const containerVariants = {
@@ -115,12 +117,8 @@ const Skills = () => {
             <div className="grid grid-cols-2 gap-6">
               {[
                 'Full-Stack Development',
-                'API Design',
+                'RESTAPI Design',
                 'Database Design',
-                'Cloud Architecture',
-                'DevOps',
-                'UI/UX Design',
-                'Mobile Development',
                 'Performance Optimization',
               ].map((competency, index) => (
                 <motion.div

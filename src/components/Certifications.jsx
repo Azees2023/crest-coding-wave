@@ -7,35 +7,36 @@ const Certifications = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
   const certifications = [
-    {
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      description: "Professional-level certification demonstrating expertise in designing distributed systems on AWS.",
-      color: "from-orange-400 to-yellow-500"
-    },
-    {
-      title: "Google Cloud Professional Developer",
-      issuer: "Google Cloud",
-      date: "2023",
-      description: "Advanced certification for building scalable and reliable applications on Google Cloud Platform.",
-      color: "from-blue-400 to-green-500"
-    },
-    {
-      title: "Microsoft Azure Developer Associate",
-      issuer: "Microsoft",
-      date: "2022",
-      description: "Certification validating skills in developing cloud solutions using Azure services.",
-      color: "from-blue-500 to-purple-600"
-    },
-    {
-      title: "MongoDB Certified Developer",
-      issuer: "MongoDB Inc.",
-      date: "2022",
-      description: "Professional certification demonstrating proficiency in MongoDB database development.",
-      color: "from-green-500 to-teal-600"
-    }
-  ];
+  {
+    title: "Java Full Stack Developer",
+    issuer: "Login 360 Institute",
+    date: "2025",
+    description: "Professional certification demonstrating expertise in designing distributed systems using Java and the Spring Boot framework.",
+    color: "from-orange-400 to-yellow-500"
+  },
+  {
+    title: "HTML, CSS, and JavaScript Developer",
+    issuer: "GreatLearning Academy",
+    date: "2023",
+    description: "Certification validating skills in web development, including front-end design and deployment of JavaScript-based applications.",
+    color: "from-blue-400 to-green-500"
+  },
+  {
+    title: "Java Level 1 Coding Task Completed",
+    issuer: "HackerRank",
+    date: "2022",
+    description: "Certification validating skills in Java programming, problem-solving, and coding challenges.",
+    color: "from-blue-500 to-purple-600"
+  },
+  {
+    title: "Agile Methodology Certification",
+    issuer: "Cognizant",
+    date: "2022",
+    description: "Professional certification demonstrating proficiency in Agile principles, Scrum practices, and iterative software development.",
+    color: "from-green-500 to-teal-600"
+  }
+];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -154,8 +154,8 @@ const About = () => {
                 className="font-semibold px-6 py-3 font-inter"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '/resume.pdf';
-                  link.download = 'Developer-Resume.pdf';
+                  link.href = '/public/Azees_Resume.pdf';
+                  link.download = 'Azees_Resume.pdf';
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
